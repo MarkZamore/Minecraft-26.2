@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "minecraftVersion": "26.2",
+  "loader": {
+    "type": "neoforge",
+    "version": "26.2.0.84"
+  }
+}
