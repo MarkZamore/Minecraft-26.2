@@ -30,3 +30,8 @@ https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable).
 
 Пуш в `main` запускает `.github/workflows/publish.yml`: он собирает манифест и выкладывает его
 вместе с активами в релиз `pack-latest`. Лаунчер читает именно этот релиз.
+
+
+## Launcher library
+
+`library/content.json` owns the player-facing description, stable identity, additional library IDs and curated addon relationships; `library/preview.jpg` is the original menu background resized for cards and the detail banner. `tools/pack_library.py` reads the actual shipped jars and builds a deterministic, content-addressed library bundle. The optional `library` field of `pack-manifest.json` names its size, SHA-256 and revision. It is published before the manifest, separately from installed game files, and ignored by older launchers.
