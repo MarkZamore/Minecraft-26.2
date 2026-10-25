@@ -1,0 +1,140 @@
+{
+  "pairs": [
+    {
+      "mappings": [
+        "key_key.left",
+        "key_key.debug.reloadChunk"
+      ],
+      "key": "key.keyboard.a",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.back",
+        "key_key.debug.dumpDynamicTextures"
+      ],
+      "key": "key.keyboard.s",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.right",
+        "key_key.debug.clearChat"
+      ],
+      "key": "key.keyboard.d",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.pickItem",
+        "key_key.spectatorHotbar"
+      ],
+      "key": "key.mouse.middle",
+      "reason": "Vanilla middle click: pick block in normal play, spectator hotbar in spectator mode."
+    },
+    {
+      "mappings": [
+        "key_key.chat",
+        "key_key.debug.reloadResourcePacks"
+      ],
+      "key": "key.keyboard.t",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.socialInteractions",
+        "key_key.debug.focusPause"
+      ],
+      "key": "key.keyboard.p",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.advancements",
+        "key_key.debug.profiling"
+      ],
+      "key": "key.keyboard.l",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.quickActions",
+        "key_key.debug.showChunkBorders"
+      ],
+      "key": "key.keyboard.g",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.toggleSpectatorShaderEffects",
+        "key_key.debug.switchGameMode"
+      ],
+      "key": "key.keyboard.f4",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.hotbar.1",
+        "key_key.debug.profilingChart"
+      ],
+      "key": "key.keyboard.1",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.hotbar.2",
+        "key_key.debug.fpsCharts"
+      ],
+      "key": "key.keyboard.2",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.hotbar.3",
+        "key_key.debug.networkCharts"
+      ],
+      "key": "key.keyboard.3",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.hotbar.4",
+        "key_key.debug.lightmapTexture"
+      ],
+      "key": "key.keyboard.4",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.saveToolbarActivator",
+        "key_key.debug.crash"
+      ],
+      "key": "key.keyboard.c",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.saveToolbarActivator",
+        "key_key.debug.copyLocation"
+      ],
+      "key": "key.keyboard.c",
+      "reason": "Vanilla debug action is gated by F3; preserve the normal action on the same physical key."
+    },
+    {
+      "mappings": [
+        "key_key.debug.overlay",
+        "key_key.debug.modifier"
+      ],
+      "key": "key.keyboard.f3",
+      "reason": "Vanilla F3 both toggles debug overlay and gates the debug-key combinations."
+    },
+    {
+      "mappings": [
+        "key_key.debug.crash",
+        "key_key.debug.copyLocation"
+      ],
+      "key": "key.keyboard.c",
+      "reason": "Vanilla F3+C copies location; holding the same chord for ten seconds triggers the diagnostic crash."
+    }
+  ]
+}

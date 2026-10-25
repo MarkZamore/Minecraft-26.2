@@ -35,3 +35,7 @@ https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable).
 ## Launcher library
 
 `library/content.json` owns the player-facing description, stable identity, additional library IDs and curated addon relationships; `library/preview.jpg` is the original menu background resized for cards and the detail banner. `tools/pack_library.py` reads the actual shipped jars and builds a deterministic, content-addressed library bundle. The optional `library` field of `pack-manifest.json` names its size, SHA-256 and revision. It is published before the manifest, separately from installed game files, and ignored by older launchers.
+
+## Пресет управления
+
+`launcher/controls-preset.txt` возвращает все 61 назначение Minecraft 26.2 к стандартной ванильной раскладке, включая клавиши отладки F3 и режим наблюдателя. Клавиши EMI остаются в его собственном `config/emi.css`. Решения, источники, проверка полноты и публикация описаны в [tools/keybinds/design.md](tools/keybinds/design.md). Пресет применяется по кнопке лаунчера; личные настройки не меняются при загрузке обновления.

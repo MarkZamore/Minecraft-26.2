@@ -1,0 +1,315 @@
+{
+  "minecraftVersion": "26.2",
+  "neoForgeVersion": "26.2.0.84",
+  "clientSha256": "85899eff0cf9b359acf9cfb4bba04ff8ce7c4fdd885e11a23e6edfd7af3f70f4",
+  "modSha256": {
+    "emi-1.1.24-b60b8f8+26.2+neoforge.jar": "72e4e63f3ba39c149d15681a864282c116d3cc064e978f0848958cd1bf71058e"
+  },
+  "mappings": [
+    {
+      "name": "key.forward",
+      "default": "key.keyboard.w",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.left",
+      "default": "key.keyboard.a",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.back",
+      "default": "key.keyboard.s",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.right",
+      "default": "key.keyboard.d",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.jump",
+      "default": "key.keyboard.space",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.sneak",
+      "default": "key.keyboard.left.shift",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.sprint",
+      "default": "key.keyboard.left.control",
+      "category": "MOVEMENT"
+    },
+    {
+      "name": "key.inventory",
+      "default": "key.keyboard.e",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.swapOffhand",
+      "default": "key.keyboard.f",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.drop",
+      "default": "key.keyboard.q",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.use",
+      "default": "key.mouse.right",
+      "category": "GAMEPLAY"
+    },
+    {
+      "name": "key.attack",
+      "default": "key.mouse.left",
+      "category": "GAMEPLAY"
+    },
+    {
+      "name": "key.pickItem",
+      "default": "key.mouse.middle",
+      "category": "GAMEPLAY"
+    },
+    {
+      "name": "key.chat",
+      "default": "key.keyboard.t",
+      "category": "MULTIPLAYER"
+    },
+    {
+      "name": "key.playerlist",
+      "default": "key.keyboard.tab",
+      "category": "MULTIPLAYER"
+    },
+    {
+      "name": "key.command",
+      "default": "key.keyboard.slash",
+      "category": "MULTIPLAYER"
+    },
+    {
+      "name": "key.friends",
+      "default": "key.keyboard.o",
+      "category": "MULTIPLAYER"
+    },
+    {
+      "name": "key.socialInteractions",
+      "default": "key.keyboard.p",
+      "category": "MULTIPLAYER"
+    },
+    {
+      "name": "key.screenshot",
+      "default": "key.keyboard.f2",
+      "category": "MISC"
+    },
+    {
+      "name": "key.togglePerspective",
+      "default": "key.keyboard.f5",
+      "category": "MISC"
+    },
+    {
+      "name": "key.smoothCamera",
+      "default": "key.keyboard.unknown",
+      "category": "MISC"
+    },
+    {
+      "name": "key.fullscreen",
+      "default": "key.keyboard.f11",
+      "category": "MISC"
+    },
+    {
+      "name": "key.advancements",
+      "default": "key.keyboard.l",
+      "category": "MISC"
+    },
+    {
+      "name": "key.quickActions",
+      "default": "key.keyboard.g",
+      "category": "MISC"
+    },
+    {
+      "name": "key.toggleGui",
+      "default": "key.keyboard.f1",
+      "category": "MISC"
+    },
+    {
+      "name": "key.toggleSpectatorShaderEffects",
+      "default": "key.keyboard.f4",
+      "category": "MISC"
+    },
+    {
+      "name": "key.hotbar.1",
+      "default": "key.keyboard.1",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.2",
+      "default": "key.keyboard.2",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.3",
+      "default": "key.keyboard.3",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.4",
+      "default": "key.keyboard.4",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.5",
+      "default": "key.keyboard.5",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.6",
+      "default": "key.keyboard.6",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.7",
+      "default": "key.keyboard.7",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.8",
+      "default": "key.keyboard.8",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.hotbar.9",
+      "default": "key.keyboard.9",
+      "category": "INVENTORY"
+    },
+    {
+      "name": "key.saveToolbarActivator",
+      "default": "key.keyboard.c",
+      "category": "CREATIVE"
+    },
+    {
+      "name": "key.loadToolbarActivator",
+      "default": "key.keyboard.x",
+      "category": "CREATIVE"
+    },
+    {
+      "name": "key.spectatorOutlines",
+      "default": "key.keyboard.unknown",
+      "category": "SPECTATOR"
+    },
+    {
+      "name": "key.spectatorHotbar",
+      "default": "key.mouse.middle",
+      "category": "SPECTATOR"
+    },
+    {
+      "name": "key.debug.overlay",
+      "default": "key.keyboard.f3",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.modifier",
+      "default": "key.keyboard.f3",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.crash",
+      "default": "key.keyboard.c",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.reloadChunk",
+      "default": "key.keyboard.a",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.showHitboxes",
+      "default": "key.keyboard.b",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.clearChat",
+      "default": "key.keyboard.d",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.showChunkBorders",
+      "default": "key.keyboard.g",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.showAdvancedTooltips",
+      "default": "key.keyboard.h",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.copyRecreateCommand",
+      "default": "key.keyboard.i",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.spectate",
+      "default": "key.keyboard.n",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.switchGameMode",
+      "default": "key.keyboard.f4",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.debugOptions",
+      "default": "key.keyboard.f6",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.focusPause",
+      "default": "key.keyboard.p",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.dumpDynamicTextures",
+      "default": "key.keyboard.s",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.reloadResourcePacks",
+      "default": "key.keyboard.t",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.profiling",
+      "default": "key.keyboard.l",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.copyLocation",
+      "default": "key.keyboard.c",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.dumpVersion",
+      "default": "key.keyboard.v",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.profilingChart",
+      "default": "key.keyboard.1",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.fpsCharts",
+      "default": "key.keyboard.2",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.networkCharts",
+      "default": "key.keyboard.3",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.lightmapTexture",
+      "default": "key.keyboard.4",
+      "category": "DEBUG"
+    }
+  ]
+}

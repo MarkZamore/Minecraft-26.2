@@ -27,6 +27,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check the controls preset
+        if: ${{ hashFiles('launcher/controls-preset.txt') != '' }}
+        run: |
+          python tools/keybinds/build_preset.py --check
+          python tools/keybinds/check_preset.py
+          python -B -m unittest discover -s tools/keybinds -p test_preset.py
+
       - name: Generate manifest and stage assets
         run: python tools/generate_manifest.py --pack . --out dist --revision "$GITHUB_SHA"
 
