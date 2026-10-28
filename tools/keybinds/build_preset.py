@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the complete vanilla Minecraft 26.2 controls preset."""
+"""Generate the complete vanilla controls preset for the pinned client."""
 from __future__ import annotations
 import argparse
 import json
@@ -17,7 +17,7 @@ def render() -> str:
     known = {mapping["name"] for mapping in registry["mappings"]}
     if LAYOUT.keys() - known:
         raise ValueError(f"Unknown overrides: {LAYOUT.keys() - known}")
-    lines = ["# Minecraft 26.2 controls preset: standard vanilla controls.",
+    lines = [f"# Minecraft {registry['minecraftVersion']} controls preset: standard vanilla controls.",
              "# Complete options.txt key mappings; EMI owns its separate config/emi.css binds.",
              "# Vanilla spectator/debug overlaps are deliberate; see tools/keybinds/design.md.",
              "# Generated with python tools/keybinds/build_preset.py."]

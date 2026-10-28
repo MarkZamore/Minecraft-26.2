@@ -27,7 +27,7 @@ Python 3.12, standard library only.
 
 from __future__ import annotations
 
-from pack_library import stage_library, verify_library
+from pack_library import read_mods, read_pack_mods, stage_library, verify_library
 
 import argparse
 import fnmatch
@@ -86,6 +86,57 @@ def sanitize_name(name: str) -> str:
     out = re.sub(r"[^A-Za-z0-9._-]+", "-", name)
     out = re.sub(r"--+", "-", out)
     return out[:80] or "asset"
+
+
+def load_file_lock(pack: Path, name: str) -> list[dict]:
+    path = pack / "tools" / name
+    if not path.is_file():
+        return []
+    document = json.loads(path.read_text(encoding="utf-8"))
+    if document.get("schemaVersion") != 1 or not isinstance(document.get("files"), list):
+        fail(f"invalid {name}")
+    found = set()
+    for row in document["files"]:
+        rel = row.get("path", "")
+        if (not isinstance(rel, str) or not rel.startswith("mods/") or "\\" in rel or
+                any(part in ("", ".", "..") for part in rel.split("/")) or
+                ":" in rel or not rel.lower().endswith(".jar") or rel.casefold() in found):
+            fail(f"invalid/duplicate path in {name}: {rel}")
+        found.add(rel.casefold())
+        if (not isinstance(row.get("sizeBytes"), int) or row["sizeBytes"] <= 0 or
+                not re.fullmatch("[a-f0-9]{64}", row.get("sha256", ""))):
+            fail(f"invalid size/SHA-256 in {name}: {rel}")
+    return document["files"]
+
+
+def validate_mod_lock(pack: Path, portable: dict, shipped: list[str], file_meta: dict) -> None:
+    path = pack / "tools/distribution-lock.json"
+    if not path.is_file():
+        return
+    document = json.loads(path.read_text(encoding="utf-8"))
+    locked = load_file_lock(pack, "distribution-lock.json")
+    if (document.get("minecraftVersion") != portable.get("minecraftVersion") or
+            document.get("loader") != portable.get("loader")):
+        fail("distribution lock does not match Minecraft/loader")
+    expected = {row["path"]: (row["sha256"], row["sizeBytes"]) for row in locked}
+    actual = {rel: file_meta[rel] for rel in shipped if rel.startswith("mods/")}
+    if expected != actual:
+        fail("active mod files differ from the exact-hash distribution lock")
+    for row in locked:
+        ids = sorted(mod["id"] for mod in read_mods(
+            (pack / row["path"]).read_bytes(), row["path"], loader=portable["loader"]["type"].lower())
+            if mod["isLoadedMod"])
+        if sorted(row.get("modIds", [])) != ids:
+            fail("active mod IDs differ from the distribution lock: " + row["path"])
+
+
+def load_legacy_files(pack: Path, shipped: list[str]) -> list[dict]:
+    active = {rel.casefold() for rel in shipped}
+    legacy = load_file_lock(pack, "legacy-files.json")
+    for row in legacy:
+        if row["path"].casefold() in active:
+            fail("legacy file must not also be active: " + row["path"])
+    return [{key: row[key] for key in ("path", "sizeBytes", "sha256")} for row in legacy]
 
 
 def is_excluded(parts: tuple[str, ...]) -> bool:
@@ -233,6 +284,9 @@ def generate(pack: Path, out: Path, revision: str) -> None:
         path = pack / Path(rel)
         file_meta[rel] = (sha256_file(path), path.stat().st_size)
 
+    validate_mod_lock(pack, portable, shipped, file_meta)
+    legacy_files = load_legacy_files(pack, shipped)
+
     assets_dir = out / "assets"
     if assets_dir.exists():
         shutil.rmtree(assets_dir)
@@ -287,7 +341,7 @@ def generate(pack: Path, out: Path, revision: str) -> None:
         # short name the publish workflow uses. Three repositories carried
         # this line over unchanged and published manifests calling
         # themselves LL8.
-        "packId": "Minecraft 26.2",
+        "packId": "Minecraft 26.3",
         "revision": revision,
         "generatedAtUtc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "minecraftVersion": portable.get("minecraftVersion"),
@@ -303,6 +357,9 @@ def generate(pack: Path, out: Path, revision: str) -> None:
         ],
         "assets": assets,
     }
+
+    if legacy_files:
+        manifest["legacyFiles"] = legacy_files
 
     if (pack / "library/content.json").is_file():
         manifest["library"] = stage_library(pack, out, revision)
@@ -347,34 +404,8 @@ def verify_only(out: Path) -> None:
 
 
 def count_loaded_mods(pack: pathlib.Path, shipped: list[str]) -> int:
-    """
-    The jars under mods/, plus the mods nested inside them.
-
-    This is the number the launcher works out for an installed pack by opening
-    every jar, and publishing it is what makes the memory estimate it shows
-    before a download match the one it shows after. It cannot be arrived at from
-    the file list alone: across the packs published from this machine the ratio
-    of nested mods to jars runs from 1.18 to 2.79 and follows neither the loader
-    nor the bytes, so a multiplier is wrong by up to three gigabytes of
-    suggested heap. Counting them here costs about a second and a half on the
-    largest pack, on jars this script has already opened to hash.
-    """
-    jars = [rel for rel in shipped
-            if rel.startswith("mods/") and rel.lower().endswith(".jar")]
-    nested = 0
-    for rel in jars:
-        try:
-            with zipfile.ZipFile(pack / rel) as archive:
-                for name in archive.namelist():
-                    lower = name.lower()
-                    if lower.endswith(".jar") and (
-                            lower.startswith("meta-inf/jars/")
-                            or lower.startswith("meta-inf/jarjar/")):
-                        nested += 1
-        except (OSError, zipfile.BadZipFile):
-            # A jar that will not open carries nothing anyone can count.
-            continue
-    return len(jars) + nested
+    """Count loader-appropriate unique mod IDs, excluding plain nested libraries."""
+    return sum(mod["isLoadedMod"] for mod in read_pack_mods(pack, shipped).values())
 
 
 def main() -> None:

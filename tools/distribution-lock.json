@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "minecraftVersion": "26.3",
+  "loader": {
+    "type": "neoforge",
+    "version": "26.3.0.99"
+  },
+  "files": [
+    {
+      "path": "mods/emi-1.1.24-e7edb3a+26.3+neoforge.jar",
+      "sizeBytes": 1111167,
+      "sha256": "a74ffcc975700740b16169e96ed179c88fc121a41f84345c34ed6e4f513296db",
+      "modIds": [
+        "emi"
+      ],
+      "projectUrl": "https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable",
+      "fileUrl": "https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable/files/9242955",
+      "releaseType": "alpha",
+      "sourceCommit": "e7edb3aa4d7619eaaa03e01084fe01bb3db567e7"
+    }
+  ]
+}

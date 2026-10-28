@@ -1,9 +1,9 @@
 {
-  "minecraftVersion": "26.2",
-  "neoForgeVersion": "26.2.0.84",
-  "clientSha256": "85899eff0cf9b359acf9cfb4bba04ff8ce7c4fdd885e11a23e6edfd7af3f70f4",
+  "minecraftVersion": "26.3",
+  "neoForgeVersion": "26.3.0.99",
+  "clientSha256": "4508d006323f24fa02876310c192d739af56516eb259000ac50f0909a68c9a2d",
   "modSha256": {
-    "emi-1.1.24-b60b8f8+26.2+neoforge.jar": "72e4e63f3ba39c149d15681a864282c116d3cc064e978f0848958cd1bf71058e"
+    "emi-1.1.24-e7edb3a+26.3+neoforge.jar": "a74ffcc975700740b16169e96ed179c88fc121a41f84345c34ed6e4f513296db"
   },
   "mappings": [
     {
@@ -309,6 +309,11 @@
     {
       "name": "key.debug.lightmapTexture",
       "default": "key.keyboard.4",
+      "category": "DEBUG"
+    },
+    {
+      "name": "key.debug.improvedTransparency",
+      "default": "key.keyboard.x",
       "category": "DEBUG"
     }
   ]

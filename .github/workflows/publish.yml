@@ -1,4 +1,4 @@
-name: Publish Minecraft 26.2 pack
+name: Publish Minecraft 26.3 pack
 
 on:
   push:
@@ -39,7 +39,8 @@ jobs:
 
       - name: Self-check staged assets
         run: |
-          python -m unittest discover -s tools -p test_pack_library.py
+          python -B -m unittest discover -s tools -p test_pack_library.py
+          python -B -m unittest discover -s tools -p test_manifest_upgrade.py
           python tools/generate_manifest.py --pack . --out dist --verify-only
 
       - name: Publish pack-latest release
@@ -76,13 +77,13 @@ jobs:
 
           if gh release view pack-latest >/dev/null 2>&1; then
             retry "Release edit" gh release edit pack-latest \
-              --title "Minecraft 26.2 pack" \
-              --notes "Rolling Minecraft 26.2 pack release. Revision: $GITHUB_SHA"
+              --title "Minecraft 26.3 pack" \
+              --notes "Rolling Minecraft 26.3 pack release. Revision: $GITHUB_SHA"
           else
             retry "Release create" gh release create pack-latest \
               --target "$GITHUB_SHA" \
-              --title "Minecraft 26.2 pack" \
-              --notes "Rolling Minecraft 26.2 pack release. Revision: $GITHUB_SHA"
+              --title "Minecraft 26.3 pack" \
+              --notes "Rolling Minecraft 26.3 pack release. Revision: $GITHUB_SHA"
           fi
 
           # Every asset is named <kind>-<the first twelve of its sha256>-<file>,

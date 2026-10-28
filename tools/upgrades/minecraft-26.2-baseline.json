@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "owner": "MarkZamore",
+    "repo": "Minecraft-26.2",
+    "commit": "e492258f968171eb79d710ca48bd5226889f1129"
+  },
+  "runtime": {
+    "schemaVersion": 1,
+    "minecraftVersion": "26.2",
+    "loader": {
+      "type": "neoforge",
+      "version": "26.2.0.84"
+    }
+  },
+  "files": [
+    {
+      "path": ".github/workflows/publish.yml",
+      "sizeBytes": 4976,
+      "sha256": "37a41d22ddd7011ae3d4cc840bd09bb84d40ea7d8f32858551092ec23c0ec941",
+      "originalWindowsCheckout": {
+        "sizeBytes": 5112,
+        "sha256": "13a354b781014117bd4c415d01d98f7234c6cac73c4d8a0f6c15da98b2d83409"
+      }
+    },
+    {
+      "path": ".gitignore",
+      "sizeBytes": 6,
+      "sha256": "ed19d3c9c8a5e34d0179e0b1a9c2907d2e657738733e4a432a8cf81c76ce56f1",
+      "originalWindowsCheckout": {
+        "sizeBytes": 7,
+        "sha256": "28de684393c1de2a61971f90fbde79d8efbbf69778261220adf5f9101f6e8494"
+      }
+    },
+    {
+      "path": "README.md",
+      "sizeBytes": 3484,
+      "sha256": "638debd42f63f234bf2caab8e1925c280d2e3d009adc7b29c0bf62114910e9bd",
+      "originalWindowsCheckout": {
+        "sizeBytes": 3525,
+        "sha256": "a7bb99a98650dad2a52fe4e76ef4f121923ab89b599106a52145e8262921520b"
+      }
+    },
+    {
+      "path": "launcher/controls-preset.txt",
+      "sizeBytes": 2759,
+      "sha256": "6ebbf5d30e0444c0d348e8771310c07dd2a565f3e25a230c112f4a42385eee97",
+      "originalWindowsCheckout": {
+        "sizeBytes": 2842,
+        "sha256": "a32f65ef8db80b830b0cf9513ca39ddc0958e26d75472b85df4d5f65ca6838fe"
+      }
+    },
+    {
+      "path": "library/content.json",
+      "sizeBytes": 1154,
+      "sha256": "61c41de76a044cbcea897615b7c85f52b8a95e7b938e7d3fd4908b48cfa804cc",
+      "originalWindowsCheckout": {
+        "sizeBytes": 1163,
+        "sha256": "5d6f718b76d4b4e7be6f9ec938e7bc3309c731e2ec298bc77504b231fc5e6aa3"
+      }
+    },
+    {
+      "path": "library/preview.jpg",
+      "sizeBytes": 65104,
+      "sha256": "012eef42eb67431d31a88896311123645e910fc52b0b70721f577905a1597ded"
+    },
+    {
+      "path": "mods/emi-1.1.24-b60b8f8+26.2+neoforge.jar",
+      "sizeBytes": 1107376,
+      "sha256": "72e4e63f3ba39c149d15681a864282c116d3cc064e978f0848958cd1bf71058e"
+    },
+    {
+      "path": "portable-pack.json",
+      "sizeBytes": 125,
+      "sha256": "dfbeb57fa83e54ac6bf4cde10cc177d6a23635d86f7fac4dd00a2987b2d0dbcf",
+      "originalWindowsCheckout": {
+        "sizeBytes": 133,
+        "sha256": "e3bbc133f64a8ba1660692304372ab2783c42ce50ef766ed3bf4b1379787664b"
+      }
+    },
+    {
+      "path": "tools/generate_manifest.py",
+      "sizeBytes": 17197,
+      "sha256": "25d9c61505d028192fc2ae58b219a5206d8f9a4c70efc5a6fcfbe446147f082f",
+      "originalWindowsCheckout": {
+        "sizeBytes": 17603,
+        "sha256": "c0e3dbd79b66f3fab844033009bca1d991764a64cf43bdb0f1009b2e8da7bd62"
+      }
+    },
+    {
+      "path": "tools/keybinds/allowed-conflicts.json",
+      "sizeBytes": 4252,
+      "sha256": "c4349511cfc6d23094f6f40ab625c83f5df0c4956bce63e3e664df2626948b91",
+      "originalWindowsCheckout": {
+        "sizeBytes": 4392,
+        "sha256": "ebcd03586e160fab63624c811c0687c55ff6a90bc4a46e4f2bb418c02480193e"
+      }
+    },
+    {
+      "path": "tools/keybinds/build_preset.py",
+      "sizeBytes": 2128,
+      "sha256": "4815933e13597afa503bb424f62b875ab65ed7da19b7804ed5feed41966d9e30",
+      "originalWindowsCheckout": {
+        "sizeBytes": 2179,
+        "sha256": "85947b7963cafc1cdcaa8cdfb39d7691719b537991543cc19ea37fe5ce587bbe"
+      }
+    },
+    {
+      "path": "tools/keybinds/check_preset.py",
+      "sizeBytes": 4211,
+      "sha256": "3badbb397b9e9a045686c884b1a1307fce65e281a471c2ed09bf82baa86a636e",
+      "originalWindowsCheckout": {
+        "sizeBytes": 4299,
+        "sha256": "cf685b05d5ca7a249f2915b2ebed2eba4f648fb0c2774a4465cde9ff5f1ebdaa"
+      }
+    },
+    {
+      "path": "tools/keybinds/design.md",
+      "sizeBytes": 6423,
+      "sha256": "4e15ea1f02a2607997c84f99760cdd877962eb02cd477b13a0092342e7951727",
+      "originalWindowsCheckout": {
+        "sizeBytes": 6461,
+        "sha256": "1740334faea1b1fb0d33085229189e8579c25e03af3f6108cef31d0f9cf4f990"
+      }
+    },
+    {
+      "path": "tools/keybinds/registered-keys.json",
+      "sizeBytes": 7113,
+      "sha256": "e4ba14e7ae7a4a7c76db9125f2b0457d217f16257a382cd4ef313e8d9eebcaaa",
+      "originalWindowsCheckout": {
+        "sizeBytes": 7428,
+        "sha256": "c1ae86e4eb3967786769a512122ec63e4d26132b7faf6468e0dd385e8291e8da"
+      }
+    },
+    {
+      "path": "tools/keybinds/scan_keys.py",
+      "sizeBytes": 5120,
+      "sha256": "4f3191577e74ae04e0a63c400a9b605347c7a79bd10892cefd2d45a957a7bdcf",
+      "originalWindowsCheckout": {
+        "sizeBytes": 5231,
+        "sha256": "2ff08bc6d3ba71b908e40fd5fe6af36d30514888cfe9be3f732d984b81395a20"
+      }
+    },
+    {
+      "path": "tools/keybinds/test_preset.py",
+      "sizeBytes": 2541,
+      "sha256": "d3aaa7306d0a828ca2ba36180f6378224ee4e72aa9ef18ef19f9baacc3c4e763",
+      "originalWindowsCheckout": {
+        "sizeBytes": 2595,
+        "sha256": "688975124366bd190b1ca58d8f6fe735e9df42eb04722303e11067f47b38dddd"
+      }
+    },
+    {
+      "path": "tools/pack_library.py",
+      "sizeBytes": 11396,
+      "sha256": "754fbc44bd753f9a9753714c27fd0995bf4c579a510e45f622080c6b8a7332c4",
+      "originalWindowsCheckout": {
+        "sizeBytes": 11548,
+        "sha256": "a701fd0c9883e97f9dbc3a64482414338e70beebe29ca437495692e3006958f6"
+      }
+    },
+    {
+      "path": "tools/test_pack_library.py",
+      "sizeBytes": 3102,
+      "sha256": "1b27f1928e9faf5f2cb40695d84f3073ba9c1c7913824da08d9b04fff5579e59",
+      "originalWindowsCheckout": {
+        "sizeBytes": 3164,
+        "sha256": "d2e51fce1223c5c14e586e6db3b3981be7092de00a740bfe1abb937015631f14"
+      }
+    }
+  ],
+  "shippedConfigPaths": [],
+  "shippedScriptPaths": [],
+  "managedTransport": {
+    "owner": "Kamilchik",
+    "project": "e4steam",
+    "version": "0.3.2",
+    "file": "e4steam-neoforge-mc1.20.2-26.2-v0.3.2.jar",
+    "sizeBytes": 3734370,
+    "sha256": "4f182b2560a6e001f248cd59cc063dd1c99d92a9b1b38ef099bc8ee822fe0418",
+    "shippedByPack": false
+  },
+  "worldsCopied": false,
+  "snapshotMode": "exact Git blob bytes at source commit; original checkout hashes retained when CRLF differed"
+}

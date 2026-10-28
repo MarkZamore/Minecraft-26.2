@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Check complete Minecraft 26.2 controls and only documented vanilla overlaps.
+"""Check complete pinned-client controls and only documented vanilla overlaps.
 
-The patched KeyMapping.same retains a raw key equality fallback, so identical
-physical keys are reported even for vanilla debug chords and spectator actions.
+Identical physical keys are reported even for vanilla debug chords and spectator actions.
 The exact default pairs below are retained, never general per-key exemptions.
 """
 from __future__ import annotations
@@ -73,7 +72,7 @@ def main() -> None:
     overlaps, problems = validate(mappings, registry, allowances)
     descriptor = json.loads((REPO / "portable-pack.json").read_text(encoding="utf-8"))
     if descriptor["minecraftVersion"] != registry["minecraftVersion"] or descriptor["loader"] != {"type": "neoforge", "version": registry["neoForgeVersion"]}:
-        problems.append("Minecraft/loader version changed; re-scan the actual patched client")
+        problems.append("Minecraft/loader version changed; re-scan the actual named client")
     current_mods = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (REPO / "mods").glob("*.jar")}
     if current_mods != registry["modSha256"]:
         problems.append("Mod jars changed; re-run scan_keys.py and review new key registrations")

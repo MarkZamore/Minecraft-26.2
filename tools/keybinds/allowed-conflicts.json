@@ -135,6 +135,14 @@
       ],
       "key": "key.keyboard.c",
       "reason": "Vanilla F3+C copies location; holding the same chord for ten seconds triggers the diagnostic crash."
+    },
+    {
+      "mappings": [
+        "key_key.loadToolbarActivator",
+        "key_key.debug.improvedTransparency"
+      ],
+      "key": "key.keyboard.x",
+      "reason": "Vanilla26.3 handleDebugKeys is gated by keyDebugModifier (F3); preserve creative toolbar load on ordinary X."
     }
   ]
 }

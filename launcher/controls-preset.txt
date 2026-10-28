@@ -1,4 +1,4 @@
-# Minecraft 26.2 controls preset: standard vanilla controls.
+# Minecraft 26.3 controls preset: standard vanilla controls.
 # Complete options.txt key mappings; EMI owns its separate config/emi.css binds.
 # Vanilla spectator/debug overlaps are deliberate; see tools/keybinds/design.md.
 # Generated with python tools/keybinds/build_preset.py.
@@ -81,3 +81,4 @@ key_key.debug.profilingChart:key.keyboard.1
 key_key.debug.fpsCharts:key.keyboard.2
 key_key.debug.networkCharts:key.keyboard.3
 key_key.debug.lightmapTexture:key.keyboard.4
+key_key.debug.improvedTransparency:key.keyboard.x

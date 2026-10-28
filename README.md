@@ -1,41 +1,32 @@
-# Minecraft 26.2
+# Minecraft 26.3
 
-Ванильный Minecraft 26.2 для лаунчера LANMinecraft, и один-единственный мод: просмотрщик рецептов EMI.
+Обычный Minecraft 26.3 для лаунчера LANMinecraft с просмотрщиком предметов и рецептов EMI. Миры, личные настройки и игровые данные в поставку не входят. Официальный клиент Mojang лаунчер получает по версии из `portable-pack.json`.
 
-Клиент игры сборка с собой не несёт — лаунчер берёт официальный у Mojang по номеру версии из
-`portable-pack.json`. Поэтому в репозитории лежит ровно то, чего у Mojang нет: манифест и джарник мода.
+| Компонент | Закреплённая версия |
+| --- | --- |
+| Minecraft | 26.3, актуальный официальный release на 28 октября 2026 года |
+| NeoForge | 26.3.0.99 |
+| EMI | 1.1.24-e7edb3a+26.3+neoforge, авторский build+62, Alpha |
+| Игровых модов в репозитории | 1 |
 
-## Что внутри
+EMI взят из того же [неофициального порта link-fgfgui](https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable), что использовался в прежней сборке 26.2. Обновлён именно этот проект: [файл 9242955](https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable/files/9242955), [исходный коммит e7edb3a](https://github.com/link-fgfgui/emi/commit/e7edb3aa4d7619eaaa03e01084fe01bb3db567e7). Автор пометил оба использованных порта как Alpha; это не заявление о стабильном канале мода.
 
-| | |
-|---|---|
-| Minecraft | 26.2 |
-| Загрузчик | NeoForge 26.2.0.84 |
-| Модов | 1 |
+Для совместной игры лаунчер отдельно устанавливает закреплённый [e4steam](https://www.curseforge.com/minecraft/mc-mods/e4steam) подходящего загрузчика. Для 26.3 предусмотрен авторский e4steam 0.3.4. Транспорт не дублируется в `mods` этого репозитория и не входит в счётчик одного игрового мода. Любой участник может открыть свой встроенный мир через существующий лаунчер.
 
-`mods/emi-1.1.24-b60b8f8+26.2+neoforge.jar` — неофициальный порт EMI 1.1.24 под 26.2, собранный
-link-fgfgui (исходники: https://github.com/link-fgfgui/emi, страница:
-https://www.curseforge.com/minecraft/mc-mods/emi-unofficial-port-unstable).
+## Обновление существующей сборки
 
-Своей сборки EMI под 26.x у автора мода нет: последняя официальная — 1.1.24 от 13 мая 2026, и её
-потолок 1.21.1. Порт проверен по байтам: 452 класса, все в пакете `dev/emi/emi`, лицензия MIT,
-идентификатор мода `emi`, из зависимостей только NeoForge. Он собран под официальные имена классов
-26.2 и пользуется новым Fabric Recipe Sync API — тем самым, из-за отсутствия которого оригинал и
-остановился на 1.21.1.
+Minecraft 26.3 продолжает прежнюю карточку: стабильный ID библиотеки остаётся `minecraft-26-2`, отображаемое имя и папка становятся `Minecraft 26.3`, репозиторий поставки — `MarkZamore/Minecraft-26.3`. Новая версия лаунчера переносит старое расположение профиля и получает текущий `pack-latest`; личный `options.txt` не заменяется при загрузке пресета.
 
-Автор порта помечает сборки под 26.2 как альфа. Если он подведёт, замена — один файл: JEI под 26.2
-выходит регулярно, зависимостей у него тоже нет, и он работает только на клиенте.
+Старый EMI для 26.2 удалён из активной поставки. `legacyFiles` манифеста содержит только его точные прежние размер и SHA-256 для распознавания устаревшего файла. Историческая запись не является ещё одним загружаемым модом. Неизвестные изменённые файлы нельзя считать проверенной старой копией по одному имени.
 
-## Как это публикуется
+Точные замены, хеши, проверка происхождения и границы проверки приведены в [tools/UPGRADE-26.3.md](tools/UPGRADE-26.3.md). Игровой запуск, открытие мира и визуальная проверка этой версии не выполнялись по решению пользователя. Совместимость старых миров без преобразования или потерь этим выпуском не удостоверена.
 
-Пуш в `main` запускает `.github/workflows/publish.yml`: он собирает манифест и выкладывает его
-вместе с активами в релиз `pack-latest`. Лаунчер читает именно этот релиз.
+## Публикация и библиотека
 
+Push в `main` запускает `.github/workflows/publish.yml`. Workflow проверяет пресет, exact-hash состав, границу активных и исторических файлов и библиотечные метаданные; публикует payload перед `pack-manifest.json` и затем удаляет больше не используемые release assets. Существующий релиз `pack-latest` обновляется на месте.
 
-## Launcher library
+`tools/distribution-lock.json` закрепляет активный EMI, его mod ID и авторский источник. `tools/upgrades/minecraft-26.2-baseline.json` хранит отдельный снимок прежнего коммита, а `tools/legacy-files.json` — точную запись для миграции. `library/content.json` задаёт карточку; `library/mod-pages.json` связывает `emi` со страницей фактически поставляемого порта. Генератор отклоняет отсутствующую ссылку и собирает отдельный content-addressed архив библиотеки.
 
-`library/content.json` owns the player-facing description, stable identity, additional library IDs and curated addon relationships; `library/preview.jpg` is the original menu background resized for cards and the detail banner. `tools/pack_library.py` reads the actual shipped jars and builds a deterministic, content-addressed library bundle. The optional `library` field of `pack-manifest.json` names its size, SHA-256 and revision. It is published before the manifest, separately from installed game files, and ignored by older launchers.
+## Управление
 
-## Пресет управления
-
-`launcher/controls-preset.txt` возвращает все 61 назначение Minecraft 26.2 к стандартной ванильной раскладке, включая клавиши отладки F3 и режим наблюдателя. Клавиши EMI остаются в его собственном `config/emi.css`. Решения, источники, проверка полноты и публикация описаны в [tools/keybinds/design.md](tools/keybinds/design.md). Пресет применяется по кнопке лаунчера; личные настройки не меняются при загрузке обновления.
+`launcher/controls-preset.txt` содержит все 62 ванильных назначения 26.3. Сканер читает реальные `Options` и таблицу сериализованных имён `InputConstants$Type`: переход на SDL не интерпретируется через старые номера GLFW. Сохранена привычная раскладка и добавлено штатное F3+X для переключения улучшенной прозрачности; сам пресет не меняет этот графический параметр. Собственные R/U и другие сочетания EMI остаются в его `config/emi.css`. Проверка и обновление описаны в [tools/keybinds/design.md](tools/keybinds/design.md).

@@ -3,6 +3,7 @@ import unittest
 from pathlib import Path
 
 import check_preset
+import scan_keys
 
 
 class PresetValidationTests(unittest.TestCase):
@@ -16,7 +17,7 @@ class PresetValidationTests(unittest.TestCase):
         overlaps, problems = check_preset.validate(self.mappings, self.registry, self.allowances)
         self.assertEqual([], problems)
         self.assertEqual(len(self.allowances), overlaps)
-        self.assertEqual(61, len(self.mappings))
+        self.assertEqual(62, len(self.mappings))
 
     def test_duplicate_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "duplicate"):
@@ -48,6 +49,31 @@ class PresetValidationTests(unittest.TestCase):
         mappings = dict(self.mappings)
         mappings["key_missing.mod.action"] = "key.keyboard.unknown"
         self.assertTrue(any("Unregistered" in p for p in check_preset.validate(mappings, self.registry, self.allowances)[1]))
+
+    def test_sdl_names_come_from_client_not_glfw_integer_table(self):
+        bytecode = '''
+  0: getstatic #1 // Field KEYBOARD:Lcom/mojang/blaze3d/platform/InputConstants$Type;
+  3: ldc #2 // String key.keyboard.unknown
+  5: iconst_0
+  6: invokestatic #3 // Method addKey:(Lcom/mojang/blaze3d/platform/InputConstants$Type;Ljava/lang/String;I)V
+  9: getstatic #1 // Field KEYBOARD:Lcom/mojang/blaze3d/platform/InputConstants$Type;
+ 12: ldc #4 // String key.keyboard.w
+ 14: bipush 26
+ 16: invokestatic #3 // Method addKey:(Lcom/mojang/blaze3d/platform/InputConstants$Type;Ljava/lang/String;I)V
+ 19: getstatic #5 // Field MOUSE:Lcom/mojang/blaze3d/platform/InputConstants$Type;
+ 22: ldc #6 // String key.mouse.left
+ 24: iconst_1
+ 25: invokestatic #3 // Method addKey:(Lcom/mojang/blaze3d/platform/InputConstants$Type;Ljava/lang/String;I)V
+ 28: getstatic #5 // Field MOUSE:Lcom/mojang/blaze3d/platform/InputConstants$Type;
+ 31: ldc #7 // String key.mouse.right
+ 33: iconst_3
+ 34: invokestatic #3 // Method addKey:(Lcom/mojang/blaze3d/platform/InputConstants$Type;Ljava/lang/String;I)V
+'''
+        names = scan_keys.parse_native_names(bytecode)
+        self.assertEqual("key.keyboard.w", names["KEYBOARD", 26])
+        self.assertEqual("key.mouse.left", names["MOUSE", 1])
+        self.assertEqual("key.mouse.right", names["MOUSE", 3])
+        self.assertEqual("key.keyboard.unknown", names["KEYBOARD", 0])
 
 
 if __name__ == "__main__":
